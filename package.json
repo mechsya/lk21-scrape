@@ -7,7 +7,7 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "build": "tsup",
+    "build": "tsc",
     "start": "node dist/app.js",
     "dev": "tsx src/app.ts"
   },

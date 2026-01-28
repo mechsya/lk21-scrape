@@ -2,7 +2,7 @@ import {
   detailSeriesScrape,
   seriesScrape,
   seriesStreamScrape,
-} from "../scrapers/series";
+} from "../scrapers/series.js";
 import axios from "axios";
 import { Request, Response, NextFunction } from "express";
 

@@ -1,4 +1,4 @@
-import server from "./server";
+import server from "./server.js";
 
 const port: number = Number(process.env.PORT) || 3000;
 

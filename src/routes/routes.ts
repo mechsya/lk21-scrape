@@ -6,7 +6,7 @@ import {
   streamMovie,
   genreMovie,
   countryMovie,
-} from "../controllers/movie";
+} from "../controllers/movie.js";
 import {
   countryseries,
   detailSeries,
@@ -16,7 +16,7 @@ import {
   populerSeries,
   ratingSeries,
   streamSeries,
-} from "../controllers/series";
+} from "../controllers/series.js";
 import { Router, IRouter } from "express";
 
 const routes: IRouter = Router();

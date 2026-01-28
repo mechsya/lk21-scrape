@@ -2,7 +2,7 @@ import {
   movieDetailScrape,
   moviesScrape,
   movieStreamScrape,
-} from "../scrapers/movie";
+} from "../scrapers/movie.js";
 import axios from "axios";
 import { Request, Response, NextFunction } from "express";
 
