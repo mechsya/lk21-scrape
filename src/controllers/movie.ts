@@ -3,8 +3,8 @@ import {
   moviesScrape,
   movieStreamScrape,
 } from "../scrapers/movie.js";
-import axios from "axios";
 import { Request, Response, NextFunction } from "express";
+import api from "../util/axios-instance.js";
 
 type TController = (
   req: Request,
@@ -20,7 +20,7 @@ const createMovieController = (
     try {
       const { page = 1 } = req.query;
 
-      const AxiosResponse = await axios.get(
+      const AxiosResponse = await api.get(
         `${process.env.LK21_BASE_URL}/${endpoint}/page/${Number(page)}`,
       );
 
@@ -43,7 +43,7 @@ export const detailMovie: TController = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const AxiosResponse = await axios.get(`${process.env.LK21_BASE_URL}/${id}`);
+    const AxiosResponse = await api.get(`${process.env.LK21_BASE_URL}/${id}`);
 
     const movie = await movieDetailScrape(req, AxiosResponse);
 
@@ -57,7 +57,7 @@ export const streamMovie: TController = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const AxiosResponse = await axios.get(`${process.env.LK21_BASE_URL}/${id}`);
+    const AxiosResponse = await api.get(`${process.env.LK21_BASE_URL}/${id}`);
 
     const movie = await movieStreamScrape(req, AxiosResponse);
 
@@ -72,7 +72,7 @@ const createCategoriesController = (endpoint: string): TController => {
     const { param } = req.params;
     const { page = 1 } = req.query;
 
-    const AxiosResponse = await axios.get(
+    const AxiosResponse = await api.get(
       `${process.env.LK21_BASE_URL}/${endpoint}/${param}/page/${Number(page)}`,
     );
 

@@ -3,8 +3,8 @@ import {
   seriesScrape,
   seriesStreamScrape,
 } from "../scrapers/series.js";
-import axios from "axios";
 import { Request, Response, NextFunction } from "express";
+import api from "../util/axios-instance.js";
 
 type TController = (
   req: Request,
@@ -20,7 +20,7 @@ const createSeriesController = (
     try {
       const { page = 1 } = req.query;
 
-      const AxiosResponse = await axios.get(
+      const AxiosResponse = await api.get(
         `${process.env.ND_BASE_URL}/${endpoint}/page/${Number(page)}`,
       );
 
@@ -54,7 +54,7 @@ export const detailSeries: TController = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const AxiosResponse = await axios.get(`${process.env.ND_BASE_URL}/${id}`);
+    const AxiosResponse = await api.get(`${process.env.ND_BASE_URL}/${id}`);
 
     const series = await detailSeriesScrape(req, AxiosResponse);
 
@@ -68,7 +68,7 @@ export const streamSeries: TController = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const AxiosResponse = await axios.get(`${process.env.ND_BASE_URL}/${id}`);
+    const AxiosResponse = await api.get(`${process.env.ND_BASE_URL}/${id}`);
 
     const series = await seriesStreamScrape(req, AxiosResponse);
 
@@ -83,7 +83,7 @@ const createCategoriesController = (endpoint: string): TController => {
     const { param } = req.params;
     const { page = 1 } = req.query;
 
-    const AxiosResponse = await axios.get(
+    const AxiosResponse = await api.get(
       `${process.env.ND_BASE_URL}/${endpoint}/${param}/page/${Number(page)}`,
     );
 
