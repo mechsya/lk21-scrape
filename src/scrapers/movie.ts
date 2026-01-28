@@ -1,5 +1,5 @@
-import { IMovie, IMovieDetail, IStream } from "@/types";
-import { cleanText } from "@/util/clean-text";
+import { IMovie, IMovieDetail, IStream } from "../types";
+import { cleanText } from "../util/clean-text";
 import { AxiosResponse } from "axios";
 import * as cheerio from "cheerio";
 import { Request } from "express";
