@@ -4,10 +4,6 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "rootDir": "src",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
     "resolveJsonModule": true,
     "sourceMap": true,
     "outDir": "dist",

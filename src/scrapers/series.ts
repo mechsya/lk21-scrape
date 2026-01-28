@@ -1,8 +1,8 @@
 import { AxiosResponse } from "axios";
 import { Request } from "express";
 import * as cheerio from "cheerio";
-import { IEpisode, IMovie, ISeries, ISeriesDetail, IStream } from "@/types";
-import { cleanText } from "@/util/clean-text";
+import { IEpisode, IMovie, ISeries, ISeriesDetail, IStream } from "../types";
+import { cleanText } from "../util/clean-text";
 
 export const seriesScrape = async (req: Request, res: AxiosResponse) => {
   try {
