@@ -8,4 +8,5 @@ export default defineConfig({
   outDir: "dist",
   sourcemap: true,
   clean: true,
+  external: ["express", "cors", "morgan", "axios", "cheerio", "dotenv"],
 });

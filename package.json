@@ -8,7 +8,7 @@
   "main": "app.js",
   "scripts": {
     "build": "tsup",
-    "start": "tsx dist/app.js",
+    "start": "node dist/app.js",
     "dev": "tsx src/app.ts"
   },
   "devDependencies": {
