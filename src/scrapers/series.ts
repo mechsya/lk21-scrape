@@ -43,7 +43,12 @@ export const detailSeriesScrape = async (req: Request, res: AxiosResponse) => {
     obj["title"] = $(".movie-info h1").text().trim();
     obj["type"] = "series";
     obj["description"] = cleanText($("div.synopsis").html()?.trim());
-
+    obj["director"] = $(".detail p").first().find("a").text().trim();
+    obj["cast"] = $(".detail p")
+      .eq(0)
+      .find("a")
+      .map((i, el) => $(el).text().trim())
+      .get();
     const script = $("#season-data");
     if (!script.length) return [];
     const json = JSON.parse(script.text());
